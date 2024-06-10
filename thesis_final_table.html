@@ -1,0 +1,3849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Micro clone Refactoring</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  
+  <!-- Main content -->
+  <div class="container">
+   <!-- First Table -->
+   <div class="row justify-content-center mb-5">
+    <div class="col-md-0">
+          <h2><b>Clone Refactoring</b> </h2>
+          <p><b>"code clone"</b> refers to duplicate or nearly duplicate code segments within a codebase. These clones can arise for various reasons, such as copying and pasting code to reuse functionality quickly without implementing proper abstractions. </p> 
+          <br>
+          <h2><b>Types of Code Clones</b> </h2>
+
+
+          <ul class="list-group">
+            <li class="list-group-item d-flex align-items-center">
+               
+                <div>
+                    <p class="mb-1"><b>Type-1 (Exact) Clones:</b>Exact copies of code blocks, except for variations in whitespace and comments.</p>
+                </div>
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+                
+                <div>
+                    <p class="mb-1"><b>Type-2 (Renamed) Clones:</b>Syntactically identical except for variations in variable names, function names, or literals.</p>
+                </div>
+            </li>
+            <li class="list-group-item d-flex align-items-center">
+               
+                <div>
+                    <p class="mb-1"><b>Type-3 (Near-Miss) Clones:</b>Similar code segments with slight modifications, such as different statements or added/removed lines.</p>
+                </div>
+            </li>
+        </ul>
+        <br>
+          
+
+
+
+
+<h2><b>Refactoring Code Clones</b> </h2>
+Refactoring involves restructuring existing code without changing its external behavior. Here's how to refactor code clones:<br>
+
+
+
+<ul class="list-group">
+  <li class="list-group-item d-flex align-items-center">
+     
+      <div>
+          <h5 class="mb-1"><b>Extract Method Refactoring</b></h5>
+          <p>Extract Method is a refactoring technique used to improve code readability, maintainability, and reduce duplication by 
+            extracting a section of code into a separate method. Here's a brief overview:</p>
+
+            <ol>
+
+              <li>  <b>Identify Repeated Code:</b>  Look for sections of 
+                code that are repeated within a method, across multiple methods, or within a class.  </li>
+              <li>  <b>Extract Common Functionality:</b> Select the repeated code and move it into a new method.   </li>
+
+              <li> <b>Define Parameters:</b>   If the extracted code relies on variables or parameters 
+                from the original method, pass those variables as parameters to the new method.  </li>
+              <li>  <b>Replace Duplicated Code: </b>Replace the duplicated code in the original location with a call to the new method.   </li>
+              <li> <b>Ensure Correctness:</b>  Test the refactored code to ensure it behaves the same way as before.   </li>
+              <p>By extracting common functionality into separate methods, we improve code organization, readability, and maintainability. 
+                It also reduces the risk of introducing bugs due to code duplication.</p>
+            </ol>
+
+      </div>
+  </li>
+  <li class="list-group-item d-flex align-items-center">
+      
+      <div>
+          <h5 class="mb-1"><b>Extract Condition</b></h5>
+
+          <p>Extract Condition" is a refactoring technique used to simplify complex conditional statements by extracting parts of the condition into separate methods or variables. 
+            This technique helps improve code readability, maintainability, and testability by breaking down complex conditions into smaller, more understandable parts.</p>
+
+            <ol>
+
+              <li>  <b>Identify Complex Conditional Statements:</b> Look for conditional statements 
+                that are difficult to understand due to their complexity or length.  </li>
+              <li>  <b>Identify Common Sub-conditions or Variables: </b>  Identify parts of the
+                 conditional statement that are repeated or could be logically grouped together.   </li>
+
+              <li> <b>Extract Sub-conditions or Variables into Methods or Variables: </b>  
+                Create separate methods or variables for the extracted sub-conditions. These methods or variables
+                 should have descriptive names that convey their purpose. </li>
+              <li>  <b> Replace Complex Condition with Extracted Methods or Variables: </b> 
+                Replace the complex conditional statement with calls 
+                to the extracted methods or references to the extracted variables.</li>
+              <li> <b>Test for Correctness:</b> Test the refactored code to ensure that it behaves correctly and maintains the same functionality as before.
+
+              </li>
+              
+            </ol>
+            <p>By extracting conditions, we break down complex logic into smaller, more manageable parts, making the code easier to understand, modify, and maintain. This also promotes code reuse and improves
+               testability as extracted methods or variables can be independently tested.</p>
+      </div>
+  </li>
+  <li class="list-group-item d-flex align-items-center">
+     
+      <div>
+          <h5 class="mb-1"><b>Concate Conditional Statement</b></h5>
+          <p>"Concatenate Conditional Statement" is a refactoring technique used to simplify complex conditional statements by combining multiple conditions into a single conditional statement. This technique helps improve code readability and maintainability by reducing
+             the number of nested conditions and making the code easier to understand.</p>
+
+          <ol>
+
+            <li>  <b>Identify Nested Conditional Statements:</b> 
+              Look for conditional statements that are nested or could be logically combined.  </li>
+            <li>  <b>Identify Common Conditions:</b>  Identify conditions that are repeated across multiple 
+              conditional statements or could be logically combined.  </li>
+
+            <li> <b>Combine Conditions into a Single Statement:</b>   Combine the identified conditions into a single conditional
+               statement using logical operators (such as && for "and" or || for "or").  </li>
+            <li>  <b> Test for Correctness:</b> Test the refactored code to ensure that it behaves correctly 
+              and maintains the same functionality as before. </li>
+            
+            
+          </ol>
+          <P>
+            By concatenating conditional statements, we simplify the logic flow and make the code easier to understand. This technique reduces duplication and makes it easier to maintain and modify the code in the future. However, it's essential to ensure that the combined conditions accurately represent the original logic and that the refactored code behaves as expected.
+
+
+
+
+
+
+          </P>
+      </div>
+  </li>
+
+  <li class="list-group-item d-flex align-items-center">
+     
+    <div>
+        <h5 class="mb-1"><b>Concate condition with nested condtion</b></h5>
+        
+          <p>This is also one type of Concating condition but here we will add condition inside another condition and combined them together.</p>
+
+         
+          
+        
+
+
+    </div>
+</li>
+<li class="list-group-item d-flex align-items-center">
+<div>
+  <h5 class="mb-1"><b>Rename and Concate Condition</b></h5>
+  <p>This is also one type of Concating condition but here we will rename the varibale then combined them together.</p>
+</div>
+</li>
+
+<li class="list-group-item d-flex align-items-center">
+<div>
+  <h5 class="mb-1"><b>Concated While Loop</b></h5>
+
+  <p>Concatenated While Loop" refers to the technique of combining multiple while loops into a single loop to simplify and streamline code execution. 
+    Here's a brief overview:</p>
+
+ <ol>
+
+   <li>  <b>Identify Multiple While Loops:</b> 
+    Look for scenarios where multiple while loops are used sequentially in a code block.
+    
+    <li>  <b>Check for Similar Conditions:</b>  Identify if the while loops have 
+      similar termination conditions or if their execution can be logically combined.  </li>
+
+   <li> <b>Combine While Loops:</b>  Merge the multiple while loops into a single loop, ensuring that the
+     loop's condition incorporates the logic of all the individual conditions. </li>
+   
+   <li><b>Simplify Logic: </b>Simplify the loop's body to handle the combined logic of the previously separate while loops.
+
+   </li>
+
+   <li><b>Test for Correctness:  </b>Test the refactored code to ensure that it behaves correctly and maintains the same functionality as before.
+   </li>
+ </ol>
+ <P>
+   By concatenating while loops, we reduce redundancy and make the code more concise and readable. However, it's crucial to ensure that the combined loop accurately represents the original logic and that the refactored code behaves as expected.
+
+
+
+
+
+
+ </P>
+
+
+
+</div>
+</li>
+
+
+
+  
+</ul>
+<br>
+<br>
+
+      
+   
+    <div class="row justify-content-center">
+      <div class="col-md">
+        <h2 class="text-center mt-0"> <b>Refactorable  Micro clone For Type 1 clone</b></h2><br>
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Language</th>
+                <th scope="col">Clone SIZE</th>
+                <th scope="col">Clone Fragment 1</th>
+                <th scope="col">Clone Fragment 2</th>
+                <th scope="col">Refactorable or Not Refactorable</th>
+                <th scope="col">Refactoring Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td> JAVA </td>
+
+              <td> 3 </td>
+              <td> catch (IOException e) {
+                e.printStackTrace();
+            }</td>
+              <td> catch (IOException e) {
+                e.printStackTrace();
+            } </td>
+              <td>Not Refactorable</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td> JAVA </td>
+                <td>3</td>
+                <td>catch (ParserConfigurationException e) {
+                    e.printStackTrace();</td>
+                <td>catch (ParserConfigurationException e) {
+                    e.printStackTrace();
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>public void caretUpdate(CaretEvent e) {
+                    updateComponents();
+            }</td>
+                <td> public void itemStateChanged(ItemEvent e) {
+                    updateComponents();
+            }</td>
+            <td>Refactorable</td>
+            <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td> public void itemStateChanged(ItemEvent e) {
+                    updateComponents();
+            
+            }</td>
+                <td>public void itemStateChanged(ItemEvent e) {
+                    updateComponents();
+            }
+                }</td>
+                <td>Refactorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>catch (Exception e1) {
+                    // should never happen
+            }</td>
+                <td>catch (Exception e1) {
+                    // should never happen
+            }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>else if (Character.isWhitespace(c) && (inCommand || inCommandOption)) {
+                    //System.out.println("whitespace here");
+                }</td>
+                <td>else if (Character.isWhitespace(c) && (inCommand || inCommandOption)) {
+                    //System.out.println("whitespace here");
+                }</td>
+                <td>Refacorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>1</td>
+                <td>catch (Throwable ex) {}</td>
+                <td>catch (Throwable ex) {}</td>
+                <td>not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>catch (Exception e1) {
+                    // should never happen
+            }</td>
+                <td>catch (Exception e1) {
+                    // should never happen
+            }</td>
+                <td>Not refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>} catch (Throwable ex) {}
+                }</td>
+                <td>} catch (Throwable ex) {}
+                }</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>catch (Exception ex) {
+                    // we'll do a search in all fields
+                }</td>
+                <td>catch (Exception ex) {
+                    // we'll do a search in all fields
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>1</td>
+                <td>catch (Throwable ex) {}
+                }</td>
+                <td>catch (Throwable ex) {}
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              
+              <tr>
+                <td> JAVA </td>
+                <td>1</td>
+                <td>catch(javax.xml.parsers.ParserConfigurationException e1){}</td>
+                <td>catch(javax.xml.parsers.ParserConfigurationException e1){}</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>catch(Throwable t){
+                    System.out.println("error getting author: "+t) ;
+                }</td>
+                <td>catch(Throwable t){
+                    System.out.println("error getting author: "+t) ; 
+                }</td>
+                <td>Not Refacorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>if( oldEntry.getField("year")!= null){
+                    newLabel += String.valueOf( oldEntry.getField("year")) ;
+                }</td>
+                <td>if( oldEntry.getField("year")!= null){
+                    newLabel += String.valueOf( oldEntry.getField("year")) ;
+                }</td>
+                <td>Refacorable</td>
+                <td>Extract Method Refactoring</td>
+                
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>private int idCompare(BibtexEntry b1, BibtexEntry b2) {
+                    return ((String)(b1.getId())).compareTo((String)(b2.getId()));
+                }</td>
+                <td>private int idCompare(BibtexEntry b1, BibtexEntry b2) {
+                    return ((String)(b1.getId())).compareTo((String)(b2.getId()));
+                }</td>
+                
+                <td>Refactorbale</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+
+
+             
+              <tr>
+                <td> JAVA </td>
+                <td>4</td>
+                <td>else if (prefix.equals("E")){
+                    if (Editor.equals("")) Editor = val;
+                    else Editor += " and " + val;
+                }</td>
+                <td>else if (lab.equals("A2")){
+                    if (Editor.equals("")) // don't add " and " for the first editor
+                        Editor = val;
+                    else Editor += " and " + val;
+                }</td>
+                <td>Refacorable</td>
+                <td>extract Condition</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>if (!pr.toOpenTab()) {
+                    jabref.jrf.addTab(pr.getDatabase(), pr.getFile(), pr.getMetaData(), pr.getEncoding(), (i == 0));
+                } </td>
+                <td>if (!pr.toOpenTab()) {
+                    jabref.jrf.addTab(pr.getDatabase(), pr.getFile(), pr.getMetaData(), pr.getEncoding(), (i == 0));
+                } </td>
+                <td>Refactorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>catch(Throwable t){
+                    System.out.println("error getting author: "+t) ;
+                }</td>
+                <td>catch(Throwable t){
+                    System.out.println("error getting author: "+t) ; 
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>private int idCompare(BibtexEntry b1, BibtexEntry b2) {
+                    return ((String)(b1.getId())).compareTo((String)(b2.getId()));
+                    }</td>
+                <td>private int idCompare(BibtexEntry b1, BibtexEntry b2) {
+                    return ((String)(b1.getId())).compareTo((String)(b2.getId()));
+                    }</td>
+                <td>Refactorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>if (Editor.equals("")) Editor = val;
+                    else Editor += " and " + val;
+                }</td>
+                <td>if (Editor.equals("")) Editor = val;
+                    else Editor += " and " + val;
+                }</td>
+                <td>Refactorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>else { // quote char
+                    quoted = true;
+                }</td>
+                <td>else { // quote char
+                    quoted = true;
+                }</td>
+                
+                <td>Refactorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>2</td>
+                <td>catch (IOException ex){
+                }</td>
+                <td>catch (IOException ex){
+                }</td>
+                <td>Not Refacorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>2</td>
+                <td> public void dragOver(DropTargetDragEvent dtde) {
+                }</td>
+                <td> public void dragOver(DropTargetDragEvent dtde) {
+                }</td>
+                <td>Not Refacorable</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td> JAVA </td>
+                <td>2</td>
+                <td>catch (KeyCollisionException ex) {
+                }</td>
+                <td>catch (KeyCollisionException ex) {
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> JAVA </td>
+                <td>3</td>
+                <td>catch (Throwable ex) {
+                    ex.printStackTrace();
+                }</td>
+                <td>catch (Throwable ex) {
+                    ex.printStackTrace();
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              
+            <tr>
+              <td> C </td>
+                <td>3</td>
+                <td>
+                    if (isType (name, TOKEN_OPEN_SQUARE)) {
+                      readToken (name);
+                      readToken (token); }
+                  </td>
+                <td>
+                    if (isType (name, TOKEN_OPEN_SQUARE)) {
+                      readToken (name);
+                      readToken (token); }
+                  </td>
+                <td>Refacorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td> while (!(isType (token, TOKEN_COMMA) ||
+                    isType (token, TOKEN_CLOSE_PAREN)
+                    )) {
+                    readToken (token); }</td>
+                <td> while (!(isType (token, TOKEN_COMMA) ||
+                    isType (token, TOKEN_CLOSE_PAREN)
+                    )) {
+                    readToken (token); }</td>
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>2</td>
+                <td>if ( isCmdTerm(token) ) {
+                    readToken (token); }</td>
+                <td>if ( isCmdTerm(token) ) {
+                    readToken (token); }</td>
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring </td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>2</td>
+                <td>if (isType (token, TOKEN_PERIOD)) {
+                    readToken(token); } }
+          </td>
+                <td>if (isType (token, TOKEN_PERIOD)) {
+                    readToken(token); } }
+          </td>
+          <td>Refacorable</td>
+          <td>Extract Method Refactoring</td>
+              </tr>
+
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>else if (d == '/') {
+                    fileSkipToCharacter ('\n');
+                    goto getNextChar; } </td>
+                <td>else if (d == '/') {
+                    fileSkipToCharacter ('\n');
+                    goto getNextChar; } </td>
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>if (c == '-') {
+                    fileSkipToCharacter ('\n');
+                    goto getNextChar; }</td>
+                <td>if (c == '-') {
+                    fileSkipToCharacter ('\n');
+                    goto getNextChar; }</td>
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>do {
+                    result = toupper ((int) *s1) - toupper ((int) *s2);
+                    } while (result == 0  &&  *s1++ != '\0'  &&  *s2++ != '\0');
+                    </td>
+                <td>do {
+                    result = toupper ((int) *s1) - toupper ((int) *s2);
+                    } while (result == 0  &&  *s1++ != '\0'  &&  *s2++ != '\0');
+                    </td>
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>do {
+                    d = fileGetc ();
+                    } while (d != EOF  &&  d != c);</td>
+                <td>do {
+                    d = fileGetc ();
+                    } while (d != EOF  &&  d != c);</td>
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring</td>
+              </tr>
+
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>if (nest_level > 0) {
+                    nest_level--; } } }
+                    if (isType (token, TOKEN_OPEN_PAREN)) {
+                      nest_level++; }</td>
+                <td>if (nest_level > 0) {
+                    nest_level--; } } }
+                    if (isType (token, TOKEN_OPEN_PAREN)) {
+                      nest_level++; }</td>
+                      <td>Refacorable</td>
+                      <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>do {
+                    vStringPut (name, (int) *cp);
+                    ++cp;
+                    } while (isalnum ((int) *cp) ||  *cp == '_' ||	*cp == '.' ||  *cp == '#');</td>
+                <td>do {
+                    vStringPut (name, (int) *cp);
+                    ++cp;
+                    } while (isalnum ((int) *cp) ||  *cp == '_' ||	*cp == '.' ||  *cp == '#');</td>
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+                    cp+=8;
+                    break; }</td>
+                <td>if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+                    cp+=8;
+                    break; }</td>
+                
+                    <td>Refacorable</td>
+                    <td>Extract Method Refactoring</td>
+            
+
+            <tr>
+              <td> C </td>
+                <td>4</td>
+                <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                    sprintf(StatusMessage,"%s", get_html_text(142));
+                    return(142);
+                  }</td>
+                <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                    sprintf(StatusMessage,"%s", get_html_text(142));
+                    return(142);
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>if(!(mailingListNames[cnt] = malloc(MAX_BUFF))) {
+                    sprintf(StatusMessage, "%s\n", get_html_text(201));
+                    return(201);
+                  }</td>
+                <td>if(!(mailingListNames[cnt] = malloc(MAX_BUFF))) {
+                    sprintf(StatusMessage, "%s\n", get_html_text(201));
+                    return(201);
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>if(fcntl(pie[0],F_DUPFD,1)==-1) {
+                    /*			fprintf(stderr,"Failure duplicating file descriptor.\n");*/
+                          _exit(111);
+                        }</td>
+                <td>if(fcntl(pie[0],F_DUPFD,1)==-1) {
+                    /*			fprintf(stderr,"Failure duplicating file descriptor.\n");*/
+                          _exit(111);
+                        }</td>
+                        <td>Refacorable</td>
+                        <td>Extract Method Refactoring</td>
+              </tr>
+
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>} else {
+                    sprintf(Buffer2, "%s/%s/", RealDir, ActionUser);
+                  }</td>
+                <td>} else {
+                    sprintf(Buffer2, "%s/%s/", RealDir, ActionUser);
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>getAlgorithm() {
+                    return alg;
+                  }</td>
+                <td>getAlgorithm() {
+                    return alg;
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>getStrings() {
+                    return strings;
+                  }</td>
+                <td>getStrings() {
+                    return strings;
+                  }</td>
+                <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>hasMoreDelimiters() {
+                    return (current < string.length);
+                  }</td>
+                <td>hasMoreDelimiters() {
+                    return (current < string.length);
+                  }</td>
+                <td>Refacorable</td>
+                <td>Extract Method Refactoring</td>
+              </tr>
+
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>if (i % 8 == 7 || i == bitmap.size() - 1) {
+                    ds.writeByte(t);
+                    t = 0;
+                  }</td>
+                <td>if (i % 8 == 7 || i == bitmap.size() - 1) {
+                    ds.writeByte(t);
+                    t = 0;
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>public void setPort(int port) {
+                    this.port = port;
+                  }</td>
+                <td>public void setPort(int port) {
+                    this.port = port;
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>public dnsCNAMERecord(dnsName rname, short rclass) {
+                    super(rname, dns.CNAME, rclass);
+                  }</td>
+                <td>public dnsCNAMERecord(dnsName rname, short rclass) {
+                    super(rname, dns.CNAME, rclass);
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>public dnsARecord(dnsName rname, short rclass) {
+                    super(rname, dns.A, rclass);
+                  }</td>
+                <td>public dnsARecord(dnsName rname, short rclass) {
+                    super(rname, dns.A, rclass);
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>public void setTSIGKey(byte [] key) {
+                    TSIG = new dnsTSIG(key);
+                  }</td>
+                <td>public void setTSIGKey(byte [] key) {
+                    TSIG = new dnsTSIG(key);
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td> int getID() {
+                    return id;
+                  }</td>
+                <td> int getID() {
+                    return id;
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>void decCount(int field) {
+                    counts[field]--;
+                  }</td>
+                <td>void decCount(int field) {
+                    counts[field]--;
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>if (getFlag(i) && ((s = dns.flagString(i)) != null)) {
+                    sb.append(s);
+                    sb.append(" ");
+                  }</td>
+                <td>if (getFlag(i) && ((s = dns.flagString(i)) != null)) {
+                    sb.append(s);
+                    sb.append(" ");
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>{
+                    super(_name, dns.CNAME, _dclass, _ttl, length, in, c);
+                  }</td>
+                <td>{
+                    super(_name, dns.CNAME, _dclass, _ttl, length, in, c);
+                  }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td> static String sectionString(int i) {
+                    String s = (String) sections.get(new Byte((byte)i));
+                    return (s != null) ? s : new Integer(i).toString();
+                  }</td>
+                <td> static String sectionString(int i) {
+                    String s = (String) sections.get(new Byte((byte)i));
+                    return (s != null) ? s : new Integer(i).toString();
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>if (origin != null) {
+                    sb.append(".");
+                    sb.append(origin);
+                  }</td>
+                <td>if (origin != null) {
+                    sb.append(".");
+                    sb.append(origin);
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>  if (s.equals("@") && origin != null) {
+                    append(origin);
+                    return;
+                  }
+            </td>
+                <td>  if (s.equals("@") && origin != null) {
+                    append(origin);
+                    return;
+                  }
+            </td>
+            <td>Refacorable</td>
+            <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>4</td>
+                <td>append(dnsName d) {
+                    System.arraycopy(d.name, 0, name, labels, d.labels);
+                    labels += d.labels;
+                  }</td>
+                <td>append(dnsName d) {
+                    System.arraycopy(d.name, 0, name, labels, d.labels);
+                    labels += d.labels;
+                  }</td>
+                  <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>catch (InterruptedIOException e) {
+                    continue;
+                }</td>
+                <td>catch (InterruptedIOException e) {
+                    continue;
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>catch (InterruptedIOException e) {
+                    s.close();
+                    continue;
+                }</td>
+                <td>catch (InterruptedIOException e) {
+                    s.close();
+                    continue;
+                }</td>
+                <td>catch (InterruptedIOException e) {
+                    s.close();
+                    continue;
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>try {
+                    s = new Socket(addr, port);
+                  }</td>
+                <td>try {
+                    s = new Socket(addr, port);
+                  }</td>
+                  <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td> C </td>
+                <td>3</td>
+                <td>try {
+                    h.addData(toCanonicalBytes(m));
+                  }
+            </td>
+                <td>try {
+                    h.addData(toCanonicalBytes(m));
+                  }
+            </td>
+                <td>Not Refactorable</td>
+                <td></td>
+              </tr>
+             
+
+
+
+
+<tr>
+  <td> JAVA </td>
+    <td>3</td>
+    <td>if (origin != null && !origin.isAbsolute()) {
+		throw new RelativeNameException(origin);
+	}</td>
+    <td>if (origin != null && !origin.isAbsolute()) {
+		throw new RelativeNameException(origin);
+	}</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>TSIG(Name name, byte [] key) {
+        this(HMAC_MD5, name, key);
+      }</td>
+    <td>TSIG(Name name, byte [] key) {
+        this(HMAC_MD5, name, key);
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>getDClass() {
+        return dclass;
+      }</td>
+    <td>getDClass() {
+        return dclass;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>getDClass() {
+        return dclass;
+      }</td>
+    <td>getDClass() {
+        return dclass;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>getDClass() {
+        return dclass;
+      }</td>
+    <td>getDClass() {
+        return dclass;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>1</td>
+    <td>{
+        super(_name, dns.CNAME, _dclass, _ttl, length, in, c);
+      }</td>
+    <td>{
+        super(_name, dns.CNAME, _dclass, _ttl, length, in, c);
+      }</td>
+    <td>Not Refacorable</td>
+                  <td></td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>finally {
+		client.cleanup();
+	}</td>
+    <td>finally {
+		client.cleanup();
+	}</td>
+    <td>Not Refacorable</td>
+                  <td></td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (ttl == 0) {
+		if (element != null && element.compareCredibility(cred) < 0)
+			removeElement(name, type);
+	}</td>
+    <td>if (ttl == 0) {
+		if (element != null && element.compareCredibility(cred) < 0)
+			removeElement(name, type);
+	}</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>catch (UnknownHostException e) {
+        return null;
+      }</td>
+    <td>catch (UnknownHostException e) {
+        return null;
+      }</td>
+    <td>Not Refacorable</td>
+                  <td></td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>numBytes() {
+        return size;
+      }</td>
+    <td>numBytes() {
+        return size;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>2</td>
+    <td>Header(byte [] b) throws IOException {
+        this(new DNSInput(b));
+  </td>
+    <td>Header(byte [] b) throws IOException {
+        this(new DNSInput(b));
+  </td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td> if (value == -1) {
+        return null;
+      }</td>
+    <td> if (value == -1) {
+        return null;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>if (!address.substring(0, 2).equalsIgnoreCase("0x")) {
+        return null;
+      }</td>
+    <td>if (!address.substring(0, 2).equalsIgnoreCase("0x")) {
+        return null;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>if (partial) {
+        return null;
+      }</td>
+    <td>if (partial) {
+        return null;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>catch (TextParseException e) {
+        return;
+      }</td>
+    <td>catch (TextParseException e) {
+        return;
+      }</td>
+    <td>Not Refacorable</td>
+                  <td></td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>catch (Exception e) {
+        return;
+      }</td>
+    <td>catch (Exception e) {
+        return;
+      }</td>
+    <td>Not Refacorable</td>
+                  <td></td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>getAdditionalName() {
+        return null;
+      }</td>
+    <td>getAdditionalName() {
+        return null;
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (token.isEOL()) {
+        st.unget();
+        return;
+      }</td>
+    <td>if (token.isEOL()) {
+        st.unget();
+        return;
+      }</td>
+    <td>Refacorable</td>
+    <td>Extract Method Refactoring</td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>2</td>
+    <td>if ((dclass = DClass.value(s)) >= 0) {
+        s = st.getString();</td>
+    <td>if ((dclass = DClass.value(s)) >= 0) {
+        s = st.getString();</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (other != null) {
+        out.writeU16(other.length);
+        out.writeByteArray(other);
+      }</td>
+    <td>if (other != null) {
+        out.writeU16(other.length);
+        out.writeByteArray(other);
+      }</td>
+    
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>public void setPort(int port) {
+        this.port = port;
+      }</td>
+    <td>public void setPort(int port) {
+        this.port = port;
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>boolean getFlag(int bit) {
+        return flags[bit];
+      }</td>
+    <td>boolean getFlag(int bit) {
+        return flags[bit];
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (getFlag(i) && ((s = dns.flagString(i)) != null)) {
+        sb.append(s);
+        sb.append(" ");
+      }</td>
+    <td>if (getFlag(i) && ((s = dns.flagString(i)) != null)) {
+        sb.append(s);
+        sb.append(" ");
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>void decCount(int field) {
+        counts[field]--;
+      }
+</td>
+    <td>void decCount(int field) {
+        counts[field]--;
+      }
+</td>
+    <td>Refacorable</td>
+    <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td> try {
+        bytes.write(opad);
+        bytes.write(output);
+      }</td>
+    <td> try {
+        bytes.write(opad);
+        bytes.write(output);
+      }</td>
+    <td> Refacorable</td>
+    <td>extract Method</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>try {
+        h.addData(toCanonicalBytes(m));
+      }</td>
+    <td>try {
+        h.addData(toCanonicalBytes(m));
+      }</td>
+    <td>Not Refacorable</td>
+                  <td></td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>else {
+      sb.append(s.substring(i, i+64));
+    }</td>
+    <td>else {
+        sb.append(s.substring(i, i+64));
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>public void setTSIGKey(byte [] key) {
+        TSIG = new dnsTSIG(key);
+      }</td>
+    <td>public void setTSIGKey(byte [] key) {
+        TSIG = new dnsTSIG(key);
+      }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>public dnsARecord(dnsName rname, short rclass) {
+        super(rname, dns.A, rclass);
+      }</td>
+    <td>public dnsARecord(dnsName rname, short rclass) {
+        super(rname, dns.A, rclass);
+      }</td>
+    <td>Refacorable</td>
+                                   <td>Extract Method Refactoring</td>
+                
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>public dnsCNAMERecord(dnsName rname, short rclass) {
+        super(rname, dns.CNAME, rclass);
+      }</td>
+    <td>public dnsCNAMERecord(dnsName rname, short rclass) {
+        super(rname, dns.CNAME, rclass);
+      }</td>
+    <td>Refacorable</td>
+                     <td>Extract Method Refactoring</td>
+  
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (v != null) {
+        server = new String[v.size()];
+        for (int i = 0; i < v.size(); i++)
+          server[i] = (String) v.elementAt(i);
+      }</td>
+    <td>if (v != null) {
+        server = new String[v.size()];
+        for (int i = 0; i < v.size(); i++)
+          server[i] = (String) v.elementAt(i);
+      }</td>
+      <td>Refacorable</td>
+                 <td>Extract Method Refactoring</td>
+      
+    
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (search == null && vsearch != null) {
+        search = new Name[vsearch.size()];
+        for (int i = 0; i < vsearch.size(); i++)
+          search[i] = new Name((String)vsearch.elementAt(i));
+      }
+  </td>
+    <td>if (search == null && vsearch != null) {
+        search = new Name[vsearch.size()];
+        for (int i = 0; i < vsearch.size(); i++)
+          search[i] = new Name((String)vsearch.elementAt(i));
+      }
+  </td>
+  <td>Refacorable</td>
+  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (rec != null) {
+        query.addRecord(rec, Section.UPDATE);
+        print(rec);
+      }</td>
+    <td>if (rec != null) {
+        query.addRecord(rec, Section.UPDATE);
+        print(rec);
+      }</td><td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (i % 8 == 7 || i == bitmap.size() - 1) {
+        out.writeByte(t);
+        t = 0;
+    }</td>
+    <td>if (i % 8 == 7 || i == bitmap.size() - 1) {
+        out.writeByte(t);
+        t = 0;
+    }</td>
+    <td>Refacorable</td>
+    <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>if (EDNSlevel >= 0) {
+        udpLength = 1280;
+        query.addRecord(EDNS.newOPT(udpLength),
+                Section.ADDITIONAL);
+    }</td>
+    <td>if (EDNSlevel >= 0) {
+        udpLength = 1280;
+        query.addRecord(EDNS.newOPT(udpLength),
+                Section.ADDITIONAL);
+    }</td>
+    <td>Refacorable</td>
+    <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>synchronized (t) {
+        t.assign(query, id, listener);
+        t.notify();
+      }</td>
+    <td>synchronized (t) {
+        t.assign(query, id, listener);
+        t.notify();
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>catch (SocketException e) {
+        System.out.println(e);
+        return null;
+      }</td>
+    <td>catch (SocketException e) {
+        System.out.println(e);
+        return null;
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>if (tsig != null) {
+        boolean ok = tsig.verify(response, in, query.getTSIG());
+        System.out.println(";; TSIG verify: " + ok);
+      }</td>
+    <td>if (tsig != null) {
+        boolean ok = tsig.verify(response, in, query.getTSIG());
+        System.out.println(";; TSIG verify: " + ok);
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>if (tsig != null) {
+        boolean ok = tsig.verify(response, in, query.getTSIG());
+        System.out.println(";; TSIG verify: " + ok);
+      }</td>
+    <td>if (tsig != null) {
+        boolean ok = tsig.verify(response, in, query.getTSIG());
+        System.out.println(";; TSIG verify: " + ok);
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>try {
+        s = new Socket(addr, port);
+      }</td>
+    <td>try {
+        s = new Socket(addr, port);
+      }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>synchronized (workerthreads) {
+        if (workerthreads.size() > 3)
+          return;
+        workerthreads.addElement(this);
+      }</td>
+    <td>synchronized (workerthreads) {
+        if (workerthreads.size() > 3)
+          return;
+        workerthreads.addElement(this);
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>if (workerthreads.size() > 0) {
+        t = (WorkerThread) workerthreads.firstElement();
+        workerthreads.removeElement(t);
+      }</td>
+    <td>if (workerthreads.size() > 0) {
+        t = (WorkerThread) workerthreads.firstElement();
+        workerthreads.removeElement(t);
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>Resolver() throws UnknownHostException {
+        this(null);
+    }</td>
+    <td>Resolver() throws UnknownHostException {
+        this(null);
+    }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>OPTRecord(Name _name, short _dclass, int _ttl) {
+        super(_name, Type.OPT, _dclass, _ttl);
+        options = null;
+    }</td>
+    <td>OPTRecord(Name _name, short _dclass, int _ttl) {
+        super(_name, Type.OPT, _dclass, _ttl);
+        options = null;
+    }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>while ((record = m.nextRecord()) != null) {
+        addRecord(record, Credibility.HINT, m);
+      }</td>
+    <td>while ((record = m.nextRecord()) != null) {
+        addRecord(record, Credibility.HINT, m);
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>CacheResponse(byte _type) {
+        this(_type, null);
+    }</td>
+    <td>CacheResponse(byte _type) {
+        this(_type, null);
+    }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>rrToWire(DataByteOutputStream dbs, Compression c) throws IOException {
+        if (data != null)
+            dbs.write(data);
+    }</td>
+    <td>rrToWire(DataByteOutputStream dbs, Compression c) throws IOException {
+        if (data != null)
+            dbs.write(data);
+    }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>setResolver(Resolver _res) {
+        res = _res;
+    }</td>
+    <td>setResolver(Resolver _res) {
+        res = _res;
+    }</td>
+    <td>Refacorable</td>
+                  <td>Extract Method Refactoring</td>
+  </tr>
+  <tr>
+    <td> JAVA </td>
+    <td>4</td>
+    <td>addRR(Record r) {
+        if (r.getType() != Type.SIG) {
+            if (!rrs.contains(r))
+                rrs.addElement(r);
+        }</td>
+    <td>addRR(Record r) {
+        if (r.getType() != Type.SIG) {
+            if (!rrs.contains(r))
+                rrs.addElement(r);
+        }</td>
+        <td>Refacorable</td>
+        <td>Extract Method Refactoring</td>
+  </tr>
+
+  <tr>
+    <td> JAVA </td>
+    <td>3</td>
+    <td>else {
+        out.writeShort(data.length);
+        out.write(data);
+      }</td>
+    <td>else {
+        out.writeShort(data.length);
+        out.write(data);
+      }</td>
+      <td>Refacorable</td>
+      <td>Extract Method Refactoring</td>
+  </tr>
+  
+  
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+<br><br>
+
+
+
+  <div class="row justify-content-center">
+    <div class="col-md">
+
+        <h2 class="text-center mt-0"> Refactorable  Micro clone For Type 2 clone</h2><br><br>
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Language</th>
+                <th scope="col">Clone SIZE</th>
+                <th scope="col">Clone Fragment 1</th>
+                <th scope="col">Clone Fragment 2</th>
+                <th scope="col">Refactorable or Not Refactorable</th>
+                <th scope="col">Refactoring Method</th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+
+
+
+
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>SPFRecord(Name name, int dclass, long ttl, String string) {
+      super(name, Type.SPF, dclass, ttl, string);
+    }</td>
+    <td>SPFRecord(Name name, int dclass, long ttl, List strings) {
+      super(name, Type.SPF, dclass, ttl, strings);
+    }</td>
+    <td>Refacorable</td>
+    <td>Inline Method </td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>SPFRecord(Name name, int dclass, long ttl, List strings) {
+      super(name, Type.SPF, dclass, ttl, strings);
+    }</td>
+    <td>TXTRecord(Name name, int dclass, long ttl, String string) {
+      super(name, Type.TXT, dclass, ttl, string);
+    }</td>
+    <td>Refacorable</td>
+    <td>Inline Method</td>
+  </tr>
+
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>SPFRecord(Name name, int dclass, long ttl, List strings) {
+      super(name, Type.SPF, dclass, ttl, strings);</td>
+    <td>TXTRecord(Name name, int dclass, long ttl, String string) {
+      super(name, Type.TXT, dclass, ttl, string);</td>
+      <td>Refacorable</td>
+      <td>Inline Method</td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>4</td>
+    <td>if (c < 0x20 || c >= 0x7f) {
+			sb.append('\\');
+			sb.append(byteFormat.format(c));
+		} e</td>
+    <td>if (b <= 0x20 || b >= 0x7f) {
+			sb.append('\\');
+			sb.append(byteFormat.format(b));
+		}</td>
+    <td>Refacorable</td>
+      <td>Extract Method with renaming variable</td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>try {
+			b.reset();
+		}</td>
+    <td>try {
+			is.close();
+		}</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>2</td>
+    <td>catch (IOException e) {
+		}</td>
+    <td>catch (InterruptedException e) {
+    }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>{
+      return types.contains(type);
+    }</td>
+    <td>{
+      return dclass;
+    }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>{
+      return salt;
+    }</td>
+    <td>{
+      return hashAlg;
+    }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>{
+      return salt;
+    }</td>
+    <td>{
+      return iterations;
+    }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>2</td>
+    <td>catch (InterruptedException e) {
+    }</td>
+    <td>catch( IllegalStateException e ){
+      }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>2</td>
+    <td>{
+      return dclass;
+    }</td>
+    <td> {
+      return alg;
+    }</td>
+    <td>Not refactorable</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>JAVA</td>
+    <td>2</td>
+    <td>{
+      return dclass;
+    }</td>
+    <td>{
+      return maxcache;
+    }</td>
+    <td>Not Refactorable</td>
+    <td></td>
+  </tr>
+ 
+
+<tr>
+  <td>JAVA</td>
+    <td>3</td>
+    <td>if (types == null)
+      return null;
+    return oneRRset(types, type);</td>
+    <td>if (types == null) {
+      data.put(name, rrset);
+      return;
+    }</td>
+    <td>Refacorable</td>
+    <td>Inline Method</td>
+  </tr>
+  
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>try {m_h.setCount(4, 0); fail("ArrayIndexOutOfBoundsException not thrown");}</td>
+    <td>try {m_h.setCount(3, 0x10000); fail("IllegalArgumentException not thrown");}</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>getDClass() {
+      return dclass;
+    }
+    </td>
+    <td>gethClass() {
+      return hclass;
+    }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>4</td>
+    <td>try {
+      new SOARecord(m_an, DClass.IN, m_ttl,
+              m_host, m_rn, m_serial, m_refresh,m_retry, m_expire, m_minimum);
+      fail("RelativeNameException not thrown");
+        }</td>
+    <td>try {
+      new SOARecord(m_an, DClass.IN, m_ttl,
+              m_rn, m_admin, m_serial, m_refresh, m_retry, m_expire, m_minimum);
+      fail("RelativeNameException not thrown");
+        }</td>
+    <td>Refacorable</td>
+    <td>Consolidate Duplicate try Blocks</td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>4</td>
+    <td>public void test_getTTL() throws IOException
+      {
+    m_t = new Tokenizer("59S");</td>
+    <td>public void test_getEOL() throws IOException
+      {
+    m_t = new Tokenizer("id");</td>
+    <td> Refacorable</td>
+    <td>Concate Function with condition</td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>1</td>
+    <td>Options() {}</td>
+    <td>GPOptions() {}</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>getY() {
+      return Y;
+    }</td>
+    <td>getAlgorithm() {
+      return alg;
+    }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>getG() {
+      return G;
+    }</td>
+    <td>getAlgorithm() {
+      return alg;
+    }</td>
+    <td>Not Refacorable</td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>getG() {
+      return G;
+    }</td>
+    <td>getY() {
+      return Y;
+    }</td>
+    <td>Not Refacorable</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>JAVA</td>
+    <td>3</td>
+    <td>HINFORecord(Name name, int dclass, long ttl) {
+      super(name, Type.HINFO, dclass, ttl);
+    }</td>
+    <td>A6Record(Name name, int dclass, long ttl) {
+      super(name, Type.A6, dclass, ttl);
+    }</td>
+    <td> Refactorable</td>
+    <td>Introduce Conditional </td>
+    </tr>
+
+    <tr>
+      <td>JAVA</td>
+      <td>3</td>
+      <td>HINFORecord(Name name, int dclass, long ttl) {
+        super(name, Type.HINFO, dclass, ttl);</td>
+      <td>AAAARecord(Name name, int dclass, long ttl) {
+        super(name, Type.AAAA, dclass, ttl);
+      }</td>
+      <td> Refactorable</td>
+      <td>Introduce Conditional Logic</td>
+      </tr>
+
+
+
+
+      <tr>
+        <td>JAVA</td>
+        <td>3</td>
+        <td>HINFORecord(Name name, int dclass, long ttl) {
+          super(name, Type.HINFO, dclass, ttl);</td>
+        <td>DSRecord(Name name, int dclass, long ttl) {
+          super(name, Type.DS, dclass, ttl);
+        }</td>
+        <td> Refactorable</td>
+        <td>Introduce Conditional Logic</td>
+        </tr> <tr>
+          <td>JAVA</td>
+          <td>3</td>
+          <td>HINFORecord(Name name, int dclass, long ttl) {
+            super(name, Type.HINFO, dclass, ttl);</td>
+          <td>DNAMERecord(Name name, int dclass, long ttl) {
+            super(name, Type.DNAME, dclass, ttl);
+          }</td>
+          <td> Refactorable</td>
+          <td>Introduce Conditional Logic</td>
+          </tr> <tr>
+            <td>JAVA</td>
+            <td>3</td>
+            <td>HINFORecord(Name name, int dclass, long ttl) {
+              super(name, Type.HINFO, dclass, ttl);</td>
+            <td>CERTRecord(Name name, int dclass, long ttl) {
+              super(name, Type.CERT, dclass, ttl);
+            }</td>
+            <td> Refactorable</td>
+            <td>Introduce Conditional Logic</td>
+            </tr> <tr>
+              <td>JAVA</td>
+              <td>3</td>
+              <td>HINFORecord(Name name, int dclass, long ttl) {
+                super(name, Type.HINFO, dclass, ttl);</td>
+              <td>ARecord(Name name, int dclass, long ttl) {
+                super(name, Type.A, dclass, ttl);
+              }</td>
+              <td> Refactorable</td>
+              <td>Introduce Conditional Logic</td>
+              </tr>
+
+              
+
+
+
+              <tr>
+                <td>JAVA</td>
+                <td>3</td>
+                <td>HINFORecord(Name name, int dclass, long ttl) {
+                  super(name, Type.HINFO, dclass, ttl);</td>
+                  <td>KEYRecord(Name name, int dclass, long ttl) {
+                    super(name, Type.KEY, dclass, ttl);
+                  }</td>
+                
+                <td> Refactorable</td>
+                <td>Introduce Conditional Logic</td>
+                </tr>
+
+        <tr>
+          <td>JAVA</td>
+          <td>3</td>
+                <td>HINFORecord(Name name, int dclass, long ttl) {
+                  super(name, Type.HINFO, dclass, ttl);</td>
+                <td>
+                  KXRecord(Name name, int dclass, long ttl) {
+                    super(name, Type.KX, dclass, ttl);
+                  }
+                  
+                </td>
+                <td> Refactorable</td>
+                <td>Introduce Conditional Logic</td>
+                </tr>
+                <tr>
+                  <td>JAVA</td>
+                  <td>3</td>
+                  <td>HINFORecord(Name name, int dclass, long ttl) {
+                    super(name, Type.HINFO, dclass, ttl);</td>
+                  <td>
+                    MXRecord(Name name, int dclass, long ttl) {
+                      super(name, Type.MX, dclass, ttl);
+                    }
+                  </td>
+                  <td> Refactorable</td>
+                  <td>Introduce Conditional Logic</td>
+                  </tr>
+                  <tr>
+                    <td>JAVA</td>
+                    <td>3</td>
+                    <td>HINFORecord(Name name, int dclass, long ttl) {
+                      super(name, Type.HINFO, dclass, ttl);</td>
+                    <td>
+                      NAPTRRecord(Name name, int dclass, long ttl) {
+                        super(name, Type.NAPTR, dclass, ttl);
+                      }
+                    </td>
+                    <td> Refactorable</td>
+                    <td>Introduce Conditional Logic</td>
+                    </tr>
+                    <tr>
+                      <td>JAVA</td>
+                      <td>3</td>
+                      <td>HINFORecord(Name name, int dclass, long ttl) {
+                        super(name, Type.HINFO, dclass, ttl);</td>
+                      <td>
+                        NSRecord(Name name, int dclass, long ttl) {
+                          super(name, Type.NS, dclass, ttl);
+                        }
+                      </td>
+                      <td> Refactorable</td>
+                      <td>Introduce Conditional Logic</td>
+                      </tr>
+                      <tr>
+                        <td>JAVA</td>
+                        <td>3</td>
+                        <td>HINFORecord(Name name, int dclass, long ttl) {
+                          super(name, Type.HINFO, dclass, ttl);</td>
+                        <td>
+                          NXTRecord(Name name, int dclass, long ttl) {
+                            super(name, Type.NXT, dclass, ttl);
+                          }
+                        </td>
+                        <td> Refactorable</td>
+                        <td>Introduce Conditional Logic</td>
+                        </tr>
+                        <tr>
+                          <td>JAVA</td>
+                          <td>3</td>
+                          <td>HINFORecord(Name name, int dclass, long ttl) {
+                            super(name, Type.HINFO, dclass, ttl);</td>
+                          <td>
+                            PTRRecord(Name name, int dclass, long ttl) {
+                              super(name, Type.PTR, dclass, ttl);
+                            }
+                          </td>
+                          <td> Refactorable</td>
+                          <td>Introduce Conditional Logic</td>
+                          </tr>
+                          <tr>
+                            <td>JAVA</td>
+                            <td>3</td>
+                            <td>HINFORecord(Name name, int dclass, long ttl) {
+                              super(name, Type.HINFO, dclass, ttl);</td>
+                            <td>
+                              RPRecord(Name name, int dclass, long ttl) {
+                                super(name, Type.RP, dclass, ttl);
+                              }
+                              
+                            </td>
+                            <td> Refactorable</td>
+                            <td>Introduce Conditional Logic</td>
+                            </tr>
+                            <tr>
+                              <td>JAVA</td>
+                              <td>3</td>
+                              <td>HINFORecord(Name name, int dclass, long ttl) {
+                                super(name, Type.HINFO, dclass, ttl);</td>
+                              <td>
+                                SIGRecord(Name name, int dclass, long ttl) {
+                                  super(name, Type.SIG, dclass, ttl);
+                                }
+                              </td>
+                              <td> Refactorable</td>
+                              <td>Introduce Conditional Logic</td>
+                              </tr>
+                              
+                                <tr>
+                                  <td>JAVA</td>
+                                  <td>3</td>
+                                  <td>HINFORecord(Name name, int dclass, long ttl) {
+                                    super(name, Type.HINFO, dclass, ttl);</td>
+                                  <td>
+                                    SOARecord(Name name, int dclass, long ttl) {
+                                      super(name, Type.SOA, dclass, ttl);
+                                    }
+                                  </td>
+                                  <td> Refactorable</td>
+                                  <td>Introduce Conditional Logic</td>
+                                  </tr>
+                                  <tr>
+                                    <td>JAVA</td>
+                                    <td>3</td>
+                                    <td>HINFORecord(Name name, int dclass, long ttl) {
+                                      super(name, Type.HINFO, dclass, ttl);</td>
+                                    <td>
+                                      SRVRecord(Name name, int dclass, long ttl) {
+                                        super(name, Type.SRV, dclass, ttl);
+                                      }
+                                    </td>
+                                    <td> Refactorable</td>
+                                    <td>Introduce Conditional Logic</td>
+                                    </tr>
+                                    <tr>
+                                      <td>JAVA</td>
+                                      <td>3</td>
+                                      <td>HINFORecord(Name name, int dclass, long ttl) {
+                                        super(name, Type.HINFO, dclass, ttl);</td>
+                                      <td>
+                                        TKEYRecord(Name name, int dclass, long ttl) {
+                                          super(name, Type.TKEY, dclass, ttl);
+                                        }
+                                      </td>
+                                      <td> Refactorable</td>
+                                      <td>Introduce Conditional Logic</td>
+                                      </tr>
+                                      <tr>
+                                        <td>JAVA</td>
+                                        <td>3</td>
+                                        <td>HINFORecord(Name name, int dclass, long ttl) {
+                                          super(name, Type.HINFO, dclass, ttl);</td>
+                                        <td>
+                                          
+                                        </td>
+                                        <td> Refactorable</td>
+                                        <td>Introduce Conditional Logic</td>
+                                        </tr>
+                                        <tr>
+                                          <td>JAVA</td>
+                                          <td>3</td>
+                                          <td>HINFORecord(Name name, int dclass, long ttl) {
+                                            super(name, Type.HINFO, dclass, ttl);</td>
+                                          <td>
+                                            TSIGRecord(Name name, int dclass, long ttl) {
+                                              super(name, Type.TSIG, dclass, ttl);
+                                            }
+                                          </td>
+                                          <td> Refactorable</td>
+                                          <td>Introduce Conditional Logic</td>
+                                          </tr>
+                                          <tr>
+                                            <td>JAVA</td>
+                                            <td>3</td>
+                                            <td>HINFORecord(Name name, int dclass, long ttl) {
+                                              super(name, Type.HINFO, dclass, ttl);</td>
+                                            <td>
+                                              TSIGRecord(Name name, int dclass, long ttl) {
+                                                super(name, Type.TSIG, dclass, ttl);
+                                              }
+                                              
+                                            </td>
+                                            <td> Refactorable</td>
+                                            <td>Introduce Conditional Logic</td>
+                                            </tr>
+                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+
+
+     <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 3) == 0) {
+        cp+=3;
+        break; } } }</td>
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 5) == 0) {
+        cp+=5;
+        break; } } }</td>
+      <td>Refacorable</td>
+      <td>Consolidate Conditional Expression</td>
+    </tr>
+                   
+    
+    <tr>
+      <td>C</td>
+      <td>3</td>
+     
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 3) == 0) {
+        cp+=3;
+        break; } } }</td>
+      <td>if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+        cp+=8;
+        break; }</td>
+        <td>Refacorable</td>
+        <td>Consolidate Conditional Expression</td>
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 3) == 0) {
+        cp+=5;
+        break; } } }</td>
+      <td>if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+        cp+=8;
+        break; }</td>
+        <td>Refacorable</td>
+        <td>Consolidate Conditional Expression</td>
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td>if (strncmp(cp, doubletriple, 3) == 0) {
+        *which = doubletriple;
+        return cp; }</td>
+      <td>if (strncmp(cp, singletriple, 5) == 0) {
+        *which = singletriple;
+        return cp; }</td>
+        <td>Refacorable</td>
+        <td>Consolidate Conditional Expression</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td>if ( ! stringListHas(ClassNames, vStringValue (fulltag)) ) {
+        stringListAdd (ClassNames, vStringNewCopy (fulltag));
+        makeJsTag (token, JSTAG_CLASS); }</td>
+      <td>if ( ! stringListHas(FunctionNames, vStringValue (fulltag)) ) {
+        stringListAdd (FunctionNames, vStringNewCopy (fulltag));
+        makeJsTag (token, JSTAG_CLASS); }</td>
+        <td>Refacorable</td>
+        <td>Renaming and Consolidate Conditional Expression</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td>   else if (d == '/') {
+        fileSkipToCharacter ('\n');
+        goto getNextChar; } }</td>
+      <td>   else if (c == '/') {
+        fileSkipToCharacter ('\n');
+        goto getNextChar; } }</td>
+      <td>Refacorable</td>
+      <td>Renaming and Consolidate Conditional Expression</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>if (isType (token, TOKEN_SEMICOLON)) {
+        makeVhdlTag (name, VHDLTAG_PROTOTYPE); }</td>
+      <td>else if (isType (token, TOKEN_IDENTIFIER)) {
+                                       
+        makeVhdlTag (token, VHDLTAG_PACKAGE); } }</td>
+      <td>Not Refacorable</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>else {
+        findCmdTerm (token); } }
+        
+</td>
+      <td>else {
+        readToken (token); } } }</td>
+      <td>Not Refacorable</td>
+      <td></td>
+    </tr>
+    <tr><td>C</td>
+      <td>4</td>
+      <td>do {
+        vStringPut (name, (int) *cp);
+        ++cp;
+        } while (isalnum ((int) *cp)  ||  *cp == '_');</td>
+
+      <td>while (isalnum ((int) *cp)  ||  *cp == '_') {
+        vStringPut (name, (int) *cp);
+        ++cp; }
+</td>
+      <td>Refacorable</td>
+      <td>Concate While Loop</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>while (isalnum ((int) *cp)  ||  *cp == '_') {
+        vStringPut (name, (int) *cp);
+        ++cp; }</td>
+
+      <td> while (isVarChar ((int) *cp)) {
+        vStringPut (name, (int) *cp);
+        ++cp; }
+</td>
+<td>Refacorable</td>
+      <td>Concate Loop with Codition</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>static void initializeCParser (const langType language) {
+        Lang_c = language;
+        buildKeywordHash (language, 0); }</td>
+
+
+      <td>static void initializeCppParser (const langType language) {
+                                              Lang_cpp = language;
+                                                    buildKeywordHash (language, 1); }</td>
+                                                    <td>Refacorable</td>
+                                                    <td>Concate Function with  Codition</td>
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>static void initializeCParser (const langType language) {
+        Lang_c = language;
+        buildKeywordHash (language, 0); }</td>
+
+
+      <td>static void initializeCsharpParser (const langType language) {
+        Lang_csharp = language;
+        buildKeywordHash (language, 2); }</td>
+                                                    <td>Refacorable</td>
+                                                    <td>Concate Function with  Codition</td>
+    </tr>
+    
+
+
+
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>static void initializeCParser (const langType language) {
+        Lang_c = language;
+        buildKeywordHash (language, 0); }</td>
+
+
+      <td>static void initializeJavaParser (const langType language) {
+        Lang_java = language;
+        buildKeywordHash (language, 3); }</td>
+                                                    <td>Refacorable</td>
+                                                    <td>Concate Function with  Codition</td>
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>static void initializeCParser (const langType language) {
+        Lang_c = language;
+        buildKeywordHash (language, 0); }</td>
+
+
+      <td>static void initializeVeraParser (const langType language) {
+        Lang_vera = language;
+        buildKeywordHash (language, 4); }</td>
+                                                    <td>Refacorable</td>
+                                                    <td>Concate Function with  Codition</td>
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td> if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+        cp+=8;
+        break; }
+
+        </td>
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 3) == 0) {
+        cp+=3;
+        break; } } }</td>
+      <td>Not Refacorable</td>
+      <td></Td>
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td> if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+        cp+=8;
+        break; }
+
+        </td>
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 4) == 0) {
+        cp+=4;
+        break; } } }</td>
+      <td>Not Refacorable</td>
+      <td></Td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td> if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+        cp+=8;
+        break; }
+
+        </td>
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 5) == 0) {
+        cp+=5;
+        break; } } }</td>
+      <td>Not Refacorable</td>
+      <td></Td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td> if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+        cp+=8;
+        break; }
+
+        </td>
+      <td>else if (strncasecmp ((const char*) cp, "sub", (size_t) 7) == 0) {
+        cp+=7;
+        break; } } }</td>
+      <td>Not Refacorable</td>
+      <td></Td>
+    </tr>
+
+
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>else if(mod == 2) {
+        sprintf(Buffer2, "%s/%s/digest", RealDir, ActionUser);
+      }
+      
+       </td>
+      <td>else if (mod == 2) {
+        addlistdig();
+      }</td>
+      <td>Refacorable</td>
+      <td>Concate Codition</td>
+    </tr>
+    <tr>
+
+      <tr>
+        <td>C</td>
+      <td>3</td>
+        <td>else if(mod == 2) {
+          sprintf(Buffer2, "%s/%s/digest", RealDir, ActionUser);
+        }
+        
+         </td>
+        <td>else if(mod == 2) {
+          sprintf(Buffer2, "%s/%s/digest", RealDir, ActionUser);
+        } </td>
+        <td>Refacorable</td>
+        <td>Concate Codition</td>
+      </tr>
+      <tr>
+
+        
+
+
+        <td>C</td>
+        <td>3</td>
+      <td>
+
+        else {
+          sprintf(Buffer1, "%s%s, ", Buffer1, alias_user);
+        }
+      
+        
+
+      </td>
+      <td>
+
+        else {
+          sprintf(Buffer2, "%s/%s/", RealDir, ActionUser);
+      }
+
+
+      </td>
+      <td>Not Refacorable</td>
+      <td></Td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>  else {
+        sprintf(Buffer2, "%s/%s/", RealDir, ActionUser);
+    }
+
+    </td>
+      <td>else {
+        /* make it an email address */
+        sprintf(dest, "%s@%s", dest, Domain);
+     }</td>
+      <td>Not Refacorable</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>else {
+        sprintf(Buffer1, "%s%s, ", Buffer1, alias_user);
+      }
+
+      </td>
+      <td>else {
+        /* make it an email address */
+        sprintf(dest, "%s@%s", dest, Domain);
+     }</td>
+      <td>Not Refacorable</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td>
+      if( sender[0]==0 || strncasecmp(sender,"mailer-daemon",13)==0 || strchr(sender,'@')==NULL || strcmp(sender,"#@[]")==0 ) {
+        /*exit with success*/
+        _exit(0);
+      }</td>
+      <td>if(count>num) {
+        /* fprintf(stderr,"AUTORESPOND: too many received from [%s]\n",sender); */
+        _exit(0);
+      }
+</td>
+      <td>Refacorable</td>
+      <td>Concate Condition</td>
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>4</td>
+      <td>else if (strcmp(command, "addautorespond") == 0 ) {
+        rv = addautorespond();
+    
+      } 
+  </td>
+      <td>else if (strcmp(command, "addautorespondnow") == 0 ) {
+    
+        {
+          fprintf(file, "[%s]", tmpstr);
+          fclose(file);
+        }</td>
+      <td>Refacorable</td>
+      <td>Concate Condition</td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td> else if (strstr(Buffer, "preline")!=NULL ) {
+        /*  It is a spam checked simple delivery  */
+        strcpy(IsSpamCheck, "checked ");
+
+        </td>
+      <td>else if (strstr(Buffer, "#")!=NULL ) {
+        /*  It is a better black hole */
+        strcpy(IsBlackHole, "checked ");</td>
+      <td>Not Refacorable</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>3</td>
+      <td>else if (strcmp(command, "delautorespond") == 0 ) {
+        rv = delautorespond();
+    
+      </td>
+      <td>} else if (strcmp(command, "delautorespondnow") == 0 ) {
+        rv = delautorespondnow();</td>
+      <td>Not Refacorable</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+      <td>
+        else if (strcmp(command, "delautorespondnow") == 0 ) {
+          rv = delautorespondnow();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+      <td>
+        else if (strcmp(command, "delautorespondnow") == 0 ) {
+          rv = delautorespondnow();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+      <td>
+        else if (strcmp(command, "delautorespondnow") == 0 ) {
+          rv = delautorespondnow();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+      <td>
+
+        else if (strcmp(command, "delautorespondnow") == 0 ) {
+          rv = delautorespondnow();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+        <td>
+        else if (strcmp(command, "delautorespondnow") == 0 ) {
+          rv = delautorespondnow();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+        <td>
+      } else if (strcmp(command, "showautoresponders") == 0) {
+        rv = show_autoresponders(Username, Domain, Mytime, command);</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+        <td>
+      } else if (strcmp(command, "addautorespond") == 0 ) {
+        rv = addautorespond();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "modautorespond") == 0 ) {
+        rv = modautorespond();</td>
+        <td>
+      } else if (strcmp(command, "addautorespond") == 0 ) {
+        rv = addautorespond();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>C</td>
+      <td>2</td>
+      <td>}   } else if (strcmp(command, "showautoresponders") == 0) {
+        rv = show_autoresponders(Username, Domain, Mytime, command);</td>
+        <td>
+      } else if (strcmp(command, "addautorespond") == 0 ) {
+        rv = addautorespond();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    <tr>
+      <td>c</td>
+      <td>2</td>
+      <td>} else if (strcmp(command, "addmailinglist") == 0 ) {
+        rv = addmailinglist();
+    </td>
+    <td>
+      } else if (strcmp(command, "addautorespond") == 0 ) {
+        rv = addautorespond();</td>
+        <td>Not Refacorable</td>
+        <td></td>
+      
+    </tr>
+
+    
+  </tbody>
+</table>
+
+</div>
+  </div>
+  <br><br>
+
+  <div class="row justify-content-center">
+    <div class="col-md">
+      <h2 class="text-center mt-0"> Refactorable  Micro clone For DNS JAVA type 3 clone</h2><br>
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Language</th>
+              <th scope="col">Clone SIZE</th>
+              <th scope="col">Clone Fragment 1</th>
+              <th scope="col">Clone Fragment 2</th>
+              <th scope="col">Refactorable or Not Refactorable</th>
+              <th scope="col">Refactoring Method</th>
+          </tr>
+        </thead>
+        <tbody>
+
+
+
+
+          <tr>
+            <td>3</td>
+            <td>JAVA</td>
+            <td>c{
+              sb.append('\\');
+              sb.append((char)b);
+            }</td>
+            <td>else if (b == '"' || b == '\\') {
+              sb.append('\\');
+              sb.append((char)b);
+            }</td>
+            <td>Refactorable</td>
+            <td>Extract Method Refactoring</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>JAVA</td>
+              <td>catch (InterruptedException e) {
+              }</td>
+              <td>catch (IOException e) {
+              }</td>
+              <td>Not Refactorable</td>
+              <td></td>
+              </tr>
+              <tr>
+               
+              <tr>
+                <td>3</td>
+                <td>JAVA</td>
+                <td> {
+                  return types.contains(type);
+                }</td>
+                <td>TSIGstring(int i) {
+                  return tsigrcodes.getText(i);
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+                </tr>
+
+
+                <tr>
+                  <td>3</td>
+                  <td>JAVA</td>
+                  <td>value(String s) {
+                    return rcodes.getValue(s);
+                  }
+                  </td>
+                  <td>
+                    
+                    {
+                      return types.contains(type);
+                    }
+                    </td>
+                  <td>Not Refactorable</td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>JAVA</td>
+                    <td>try {m_h.setCount(3, 0x10000); fail("IllegalArgumentException not thrown");}</td>
+                    <td>try {m_h.setCount(4, 0); fail("ArrayIndexOutOfBoundsException not thrown");}</td>
+                    <td>Not Refactorable</td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>JAVA</td>
+                      <td>{
+                        return types.contains(type);
+                      }
+                      </td>
+                      <td>
+                        string(int type) {
+                          return types.getText(type);
+                        }
+
+
+                      </td>
+                      <td>Not Refactorable</td>
+                      <td></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>JAVA</td>
+                        <td>{
+                          return types.contains(type);
+                        }
+                        </td>
+                        <td>string(int i) {
+                          return flags.getText(i);
+                        }</td>
+                        <td>Not Refactorable</td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>JAVA</td>
+                          <td>{
+                            return types.contains(type);
+                          }
+                          </td>
+                          <td>string(int i) {
+                            return rcodes.getText(i);
+                          }</td>
+                          <td>Not Refactorable</td>
+                          <td></td>
+                          </tr> 
+                            <tr>
+                              <td>3</td>
+                              <td>JAVA</td>
+                              <td>setAddress(InetSocketAddress addr) {
+                                address = addr;
+                              }</td>
+                              <td>save() {
+                                saved_pos = pos;
+                              }
+                              </td>
+                              <td>Not Refactorable</td>
+                              <td></td>
+                              </tr>
+
+                               <tr>
+                
+                <td>3</td>
+                <td>JAVA</td>
+                <td>getNext() {
+                  return next;
+                }</td>
+                <td>{
+                  return salt;
+                }
+                </td>
+                <td>Not Refactorable</td>
+                <td></td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>JAVA</td>
+                  <td>getPrecedence() {
+                    return precedence;
+                  }</td>
+                  <td>{
+                    return salt;
+                  }</td>
+                  <td>Not Refactorable</td>
+                  <td></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>JAVA</td>
+                    <td>getRetry() {  
+                      return retry;
+                    }</td>
+                    <td>
+                      return salt;
+                    }</td>
+                    <td>Not Refactorable</td>
+                    <td></td>
+                    </tr> <tr>
+                      <td>3</td>
+                      <td>JAVA</td>
+                      <td>{
+                        return salt;
+                      }</td>
+                      <td>
+                        return salt;
+                      }</td>
+                      <td>Not Refactorable</td>
+                      <td></td>
+                      </tr> <tr>
+                        <td>3</td>
+                        <td>JAVA</td>
+                        <td>getRetry() {  
+                          return retry;
+                        } </td>
+                        <td>{
+                          return salt;
+                        }</td>
+                        <td>Not Refactorable</td>
+                        <td></td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>JAVA</td>
+                          <td>getRefresh() {  
+                            return refresh;
+                          }</td>
+                          <td>
+                            return salt;
+                          }</td>
+                          <td>Not Refactorable</td>
+                          <td></td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>JAVA</td>
+                            <td>getTextDomain() {
+                              return textDomain;
+                            }</td>
+                            <td>
+                            return salt;
+                          }</td>
+                            <td>Not Refactorable</td>
+                            <td></td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>JAVA</td>
+                              <td>getTimeout() {
+                                return timeoutValue;
+                              }</td>
+                              <td>
+                                return salt;
+                              }</td>
+                              <td>Not Refactorable</td>
+                              <td></td>
+                              </tr>
+
+                               <tr>
+                <td>3</td>
+                <td>JAVA</td>
+                <td>else if (quoting && c == '\n') {
+                  throw exception("newline in quoted string");
+                }</td>
+                <td>catch (NumberFormatException e) {
+                  throw exception("expected a TTL value");
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>JAVA</td>
+                  <td>catch (NumberFormatException e) {
+                    throw exception("expected a TTL value");
+                  }</td>
+                  <td>catch (NumberFormatException e) {
+                    throw exception("expected an integer");
+                  }</td>
+                  <td>Not Refactorable</td>
+                  <td></td>
+                  </tr>
+                  <td>3</td>
+                <td>JAVA</td>
+                <td>catch (NumberFormatException e) {
+                  throw exception("expected a TTL-like value");
+                }</td>
+                <td>catch (NumberFormatException e) {
+                  throw exception("expected a TTL value");
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>JAVA</td>
+                  <td>{
+                    return Record.unknownToString(in);
+                }</td>
+                  <td>{
+                    return types.contains(type);
+                  }
+                  </td>
+                  <td>Not Refactorable</td>
+                  <td></td>
+                  </tr>
+                  <td>3</td>
+                <td>JAVA</td>
+                <td>{
+                  return Record.byteArrayFromString(in);
+              }</td>
+                <td>{
+                  return types.contains(type);
+                }
+                </td>
+                <td>Not Refactorable</td>
+                <td></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>JAVA</td>
+                  <td>exactName(Name name) {
+                    return data.get(name);
+                  }</td>
+                  <td>{
+                    return types.contains(type);
+                  }
+                  </td>
+                  <td>Not Refactorable</td>
+                  <td></td>
+                  </tr>
+                  <td>3</td>
+                <td>JAVA</td>
+                <td>getAlgorithm() {
+                  return alg;
+                }
+                </td>
+                <td>getDClass() {
+                  return dclass;
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+                </tr>
+                <tr>
+
+                </tr>
+                <td>3</td>
+              <td>JAVA</td>
+              <td>getCert() {
+                return cert;
+              }</td>
+              <td>getDClass() {
+                return dclass;
+              }</td>
+              <td>Not Refactorable</td>
+              <td></td>
+              </tr>
+              <tr>
+
+              </tr>
+              <td>3</td>
+            <td>JAVA</td>
+            <td>getCertType() {
+              return certType;
+            }</td>
+            <td>getDClass() {
+              return dclass;
+            }</td>
+            <td>Not Refactorable</td>
+            <td></td>
+            </tr>
+            <tr>
+
+            </tr>
+            <td>3</td>
+          <td>JAVA</td>
+          <td>getMailbox() {
+            return mailbox;
+          }</td>
+          <td>getDClass() {
+            return dclass;
+          }</td>
+          <td>Not Refactorable</td>
+          <td></td>
+          </tr>
+          <tr>
+          </tr>
+          <td>3</td>
+        <td>JAVA</td>
+        <td>getNameField() {
+          return nameField;
+        }</td>
+        <td>getDClass() {
+          return dclass;
+        }</td>
+        <td>Not Refactorable</td>
+        <td></td>
+        </tr>
+        <tr>
+        </tr>
+        <td>3</td>
+      <td>JAVA</td>
+      <td>getTextDomain() {
+        return textDomain;
+      }</td>
+      <td>getDClass() {
+        return dclass;
+      }</td>
+      <td>Not Refactorable</td>
+      <td></td>
+      </tr>
+      <tr>
+
+        <td>3</td>
+      <td>JAVA</td>
+      <td>getAdmin() {  
+        return admin;
+      }</td>
+      <td>getDClass() {
+        return dclass;
+      }</td>
+      <td>Not Refactorable</td>
+      <td></td>
+      </tr>
+      <tr>
+
+        <td>3</td>
+      <td>JAVA</td>
+      <td>getAddress() {
+        return address;
+      }</td>
+      <td>getDClass() {
+        return dclass;
+      }</td>
+      <td>Not Refactorable</td>
+      <td></td>
+      </tr>
+      <tr>
+
+        <td>3</td>
+      <td>JAVA</td>
+      <td>getDigestType() {
+        return digestType;
+      }</td>
+      <td>getDClass() {
+        return dclass;
+      }</td>
+      <td>Not Refactorable</td>
+      <td></td>
+      </tr>
+
+      <tr>
+
+        <td>3</td>
+      <td>JAVA</td>
+      <td>getExpire() {  
+        return expire;
+      } </td>
+      <td>getDClass() {
+        return dclass;
+      }</td>
+      <td>Not Refactorable</td>
+      <td></td>
+      </tr>
+
+      <tr>
+
+        <td>3</td>
+      <td>JAVA</td>
+      <td>getFingerPrint() {
+        return fingerprint;
+      }</td>
+      <td>getDClass() {
+        return dclass;
+      }</td>
+      <td>Not Refactorable</td>
+      <td></td>
+      </tr>
+      <tr>
+
+        <td>3</td>
+      <td>JAVA</td>
+      <td>getKeyTag() {
+        return keyTag;
+      }</td>
+      <td>getDClass() {
+        return dclass;
+      }</td>
+      <td>Not Refactorable</td>
+      <td></td>
+      </tr>
+
+
+
+        
+
+
+
+
+                  <td>3</td>
+                  <td>JAVA</td>
+                  <td>catch (NumberFormatException e) {
+                    throw exception("expected an integer");
+                  }</td>
+                  <td>catch (NumberFormatException e) {
+                    throw exception("expected a TTL value");
+                  }</td>
+                  <td>Not Refactorable</td>
+                  <td></td>
+                  </tr>
+                  <td>3</td>
+                  <td>JAVA</td>
+                  <td>else if (quoting && c == '\n') {
+                    throw exception("newline in quoted string");
+                  }</td>
+                  <td>catch (NumberFormatException e) {
+                    throw exception("expected a TTL value");
+                  }</td>
+                  <td>Not Refactorable</td>
+                  <td></td>
+                  </tr>
+
+                </tr>
+                <td>3</td>
+                <td>JAVA</td>
+                <td>else if (quoting && c == '\n') {
+                  throw exception("newline in quoted string");
+                }</td>
+                <td>catch (NumberFormatException e) {
+                  throw exception("expected a TTL value");
+                }</td>
+                <td>Not Refactorable</td>
+                <td></td>
+                </tr>
+              </tr>
+              <td>3</td>
+              <td>JAVA</td>
+              <td>else if (quoting && c == '\n') {
+                throw exception("newline in quoted string");
+              }</td>
+              <td>catch (NumberFormatException e) {
+                throw exception("expected a TTL value");
+              }</td>
+              <td>Not Refactorable</td>
+              <td></td>
+              </tr>
+              </tr>
+              <tr>
+
+                <td>3</td>
+              <td>JAVA</td>
+              <td>catch (NumberFormatException e) {
+                throw exception("expected an integer");
+              }</td>
+              <td>catch (NumberFormatException e) {
+                throw exception("expected a TTL value");
+              }</td>
+              <td>Not Refactorable</td>
+              <td></td>
+
+              </tr>
+
+              <tr>
+
+                <td>3</td>
+              <td>JAVA</td>
+              <td>catch (NumberFormatException e) {
+                throw exception("expected a TTL-like value");
+              }</td>
+              <td>else if (quoting && c == '\n') {
+                throw exception("newline in quoted string");
+              }</td>
+              <td>Not Refactorable</td>
+              <td></td>
+
+              </tr>
+
+             
+
+              <tr>
+
+                <td>3</td>
+              <td>JAVA</td>
+              <td>
+
+                {
+                  return new SetResponse(SetResponse.CNAME,
+                             (CacheRRset) element);
+                }
+
+              </td>
+              <td>element instanceof CacheRRset)
+                {
+                  return new SetResponse(SetResponse.DNAME,
+                             (CacheRRset) element);
+                }/td>
+              <td>Not Refactorable</td>
+              <td></td>
+
+              </tr>
+
+              <tr>
+
+                <td>3</td>
+              <td>JAVA</td>
+              <td>searchPath() {
+                return searchlist;
+              }</td>
+              <td>getDClass() {
+                return dclass;
+              }</td>
+              <td>Not Refactorable</td>
+              <td></td>
+
+              </tr>
+
+              <tr>
+
+                <td>3</td>
+              <td>JAVA</td>
+              <td>servers() {
+                return servers;
+              }</td>
+              <td>getDClass() {
+                return dclass;
+              }</td>
+              <td>Not Refactorable</td>
+              <td></td>
+
+              </tr>
+              
+
+
+
+
+                <tr>
+                <td>2</td>
+                <td>C</td>
+                <td>else if (isType (token, TOKEN_IDENTIFIER)) {
+                  makeVhdlTag (token, VHDLTAG_PACKAGE); }</td>
+                <td>if (isType (name, TOKEN_IDENTIFIER)) {
+                  makeSqlTag (name, SQLTAG_TABLE); } }</td>
+                <td>Not Refacorable</td>
+                <td></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>C</td>
+                  <td>if (isType (token, TOKEN_OPEN_PAREN)) {
+                    skipToMatched (token); }</td>
+                  <td> if	(strncmp ((const char*) line, "aug", (size_t) 3) == 0) {
+                    skipToMatched (token); }</td>
+                  <td>Refactorable</td>
+                  <td>Concated Conditional statement </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>C</td>
+                    <td>do {
+                      d = fileGetc ();
+                      } while (d != EOF && d != c);
+</td>
+                    <td>do {
+                      c = vGetc();
+                      } while (c != '\n' && d != c);</td>
+                      <td>Refactorable</td>
+                      <td>Concated While Loop </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>C</td>
+                      <td>if (strncmp(cp, singletriple, 3) == 0) {
+                        *which = singletriple;
+                        return cp; }</td>
+
+                      <td>if (strncmp(cp, doubletriple, 3) == 0) {
+                        *which = doubletriple;
+                        return cp; }
+                    </td>
+                      <td>Refactorable</td>
+                      <td>Concated Conditional Statement </td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>C</td>
+                        <td>
+                          if (isType (token, TOKEN_OPEN_PAREN)) {
+                                              skipArgumentList(token); } } }</td>
+                        <td>if (isType (token, TOKEN_OPEN_PAREN)) {
+                          skipToMatched (token); }
+  </td>
+  <td>Refactorable</td>
+  <td>Concated Conditional Statement </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>C</td>
+                          <td> while (isalnum ((int) *cp)  ||  *cp == '_') {
+                            vStringPut (name, (int) *cp);
+                            ++cp; }
+
+                           </td>
+                          <td> while ((int) *cp != '\0'  &&  ! isspace ((int) *cp)) {
+                            vStringPut (name, (int) *cp);
+                            ++cp; }</td>
+                            <td>Refactorable</td>
+                            <td>Concated While Loop </td>
+                          </tr><tr>
+                            <td>3</td>
+                            <td>C</td>
+                            <td>if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+                              cp+=8;
+                              break; }
+
+                             </td>
+                            <td> else if (strncasecmp ((const char*) cp, "sub", (size_t) 3) == 0) {
+                              cp+=3;
+                              break; } } }</td>
+                            <td>Refactorable</td>
+                            <td> Rename and Concate Condition</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>C</td>
+                              <td> if (strncasecmp ((const char*) cp, "function", (size_t) 8) == 0) {
+                                cp+=8;
+                                break; }</td>
+                              <td>
+
+                                else if (strncasecmp ((const char*) cp, "sub", (size_t) 3) == 0) {
+                                  cp+=3;
+                                  break; } } }
+
+                              </td>
+                              <td>Refactorable</td>
+                            <td> Rename and Concate Condition</td>
+                              </tr>
+                              <tr>
+                                <td>4</td>
+                                <td>C</td>
+                                <td>else if (create != 0 && check_local_user(forwardname)) {
+                                  sprintf(StatusMessage, "%s %s\n", get_html_text(175), forwardname);
+                                  return(-1);
+                                }</td>
+                                <td>
+                                  else if (fixup_local_name(forwardname)) {
+                                    sprintf(StatusMessage, "%s %s\n", get_html_text(163), forwardname);
+                                     return(-1);
+                                </td>
+                                <td>Refacorable</td>
+                                <td>Concate condition with nested condtion</td>
+                                </tr>
+
+                                <tr>
+                                  <td>4</td>
+                                  <td>C</td>
+                                  <td>if (strlen(forwardname)<=0) {
+                                    sprintf(StatusMessage, "%s %s\n", get_html_text(163), forwardname);
+                                    return(-1);
+                                    
+                                  /* make sure forwardname is valid */}
+                                  </td>
+                                  <td>
+                                    else if (fixup_local_name(forwardname)) {
+                                      sprintf(StatusMessage, "%s %s\n", get_html_text(163), forwardname);
+                                       return(-1);
+                                    
+                                       / * check to see if we already have a user with this name (only for create) */
+                                       }
+                                  </td>
+                                  <td>Refacorable</td>
+                                  <td>Concate condition</td>
+                                  </tr>
+                                  <tr>
+                                    <td>4</td>
+                                    <td>C</td>
+                                    <td>if (check_email_addr(dest)) {
+                                      sprintf(StatusMessage, "%s %s\n", get_html_text(162), dest);
+                                      return(-1);
+                                   }</td>
+                                    <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                                      sprintf(StatusMessage,"%s", get_html_text(142));
+                                      return(142);
+                                    }</td>
+                                    <td>Refacorable</td>
+                                <td>Concate condition with nested condtion</td>
+                                    </tr>
+                                    <tr>
+                                      <td>4</td>
+                                      <td>C</td>
+                                      <td>if(!(mailingListNames[cnt] = malloc(MAX_BUFF))) {
+                                        sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                        return(201);
+                                      }
+                                    
+                                      </td>
+                                      <td>
+                                        if ( AdminType!=DOMAIN_ADMIN ) {
+                                          sprintf(StatusMessage,"%s", get_html_text(142));
+                                          return(142);
+                                        }
+                                      </td>
+                                      <td>Refacorable</td>
+                                      <td>Concate condition with nested condtion</td>
+                                      </tr>
+                                      <tr>
+                                        <td>3</td>
+                                        <td>C</td>
+                                        <td>if(!(mailingListNames = malloc(sizeof(char *) * num))) {
+                                          sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                          return(201);
+                                      </td>
+                                        <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                                          sprintf(StatusMessage,"%s", get_html_text(142));
+                                          return(142);
+                                        }</td>
+                                        <td>Refacorable</td>
+                                      <td>Concate condition with nested condtion</td>
+                                        </tr>
+                                        <tr>
+                                          <td>4</td>
+                                          <td>C</td>
+                                          <td>if ( (fs = fopen(".qmail-default", "w")) == NULL ) {
+                                            fprintf(stderr,"QmailAdmin: DA %s %s\n", 
+                                                    get_html_text(144), ".qmail-default");
+                                          }</td>
+                                          <td>if ( (fs = fopen(".mail-default", "w")) == NULL ) {
+                                            fprintf(stderr,"MailAdmin: SRCN %s %s\n", 
+                                                    get_html_text(144), ".mail-default");
+                                        
+                                          } </td>
+                                          <td>Refacorable</td>
+                                      <td>Concate condition with nested condtion</td>
+                                          </tr>
+
+
+                                          <tr>
+                                            <td>3</td>
+                                            <td>C</td>
+                                            <td>else {
+                                              sprintf(Buffer2, "%s/%s/", RealDir, ActionUser);
+                                          }</td>
+                                            <td>else if(mod == 2) {
+                                              sprintf(Buffer2, "%s/%s/digest", RealDir, ActionUser);
+                                          } </td>
+                                          <td>Refacorable</td>
+                                          <td>Concate condition statement</td>
+                                            </tr>
+                                            <tr>
+                                              <td>3</td>
+                                              <td>C</td>
+                                              <td>else if(mod == 2) {
+                                                sprintf(Buffer2, "%s/%s/digest", RealDir, ActionUser);
+                                            } </td>
+                                              <td> else {
+                                                sprintf(Buffer2, "%s/%s/", RealDir, ActionUser);
+                                            }
+                                            } </td>
+                                            <td>Refacorable</td>
+                                            <td>Concate condition statement</td>
+                                              </tr>
+                                              <tr>
+                                                <td>4</td>
+                                                <td>C</td>
+                                                <td>if(strstr(Buffer, SPAM_COMMAND)!=NULL) {
+                                                  /*  It is spam checked  */
+                                                  fprintf( stderr, "Spam Checked\n" );
+                                                  strcpy(IsSpamCheck, "checked ");
+                                                }</td>
+                                                <td> 
+                                                  if(strstr(Buffer, SPAM_COMMAND)!=NULL) {
+                                                    /*  It is spam checked  */
+                                                    fprintf( stderr, "Spam Checked\n" );
+                                                    strcpy(IsSpamCheck, "checked ");
+                                                  }
+                                                </td>
+                                                <td>Refacorable</td>
+                                                <td>Concate COnditional statement</td>
+                                                </tr>
+                                                <tr>
+                                                  <td>4</td>
+                                                  <td>C</td>
+                                                  <td>
+                                                    if (strstr(IsSpamCheck, "checked ")!=NULL ) {
+                                                      /*  One line, spam checked is Standard  */
+                                                      strcpy(IsStandard, "checked ");
+                                                    }
+
+
+                                                  </td>
+                                                  <td>else {
+                                                    sprintf(Buffer2, "%s/%s/", RealDir, ActionUser);
+                                                }</td>
+                                                  <td>Not Refacorable</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>3</td>
+                                                    <td>C</td>
+                                                    <td>if (strcmp(command, "showmenu") == 0 ) {
+                                                      show_menu(Username, Domain, Mytime);
+                                                  
+                                                    }</td>
+                                                    <td>
+                                                      if(CurForwards == 0) {
+                                                        show_menu(Username, Domain, Mytime);
+                                                      } 
+                                                    </td>
+                                                    <td>Refacorable
+                                                  
+                                                    </td>
+                                                    <td>Concate Conditional Statement</td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td>3</td>
+                                                      <td>C</td>
+                                                      <td>
+                                                        if (check_local_user(Buffer2)) {
+                                                          strcpy(Username, Buffer2);
+                                                       } 
+                                                      </td>
+                                                      <td>
+                                                        if (check_local_user(Buffer3)) {
+                                                          strcpy(alias_user, Buffer3);
+                                                       } 
+                                                      </td>
+                                                      <td>Not Refacorable</td>
+                                                      <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td>4</td>
+                                                        <td>C</td>
+                                                        <td> (AdminType==USER_ADMIN && strcmp(ActionUser,Username)==0))){
+                                                          sprintf(StatusMessage,"%s", get_html_text(142));
+                                                          return(142)</td>
+                                                        <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                                                          sprintf(StatusMessage,"%s", get_html_text(142));
+                                                          return(142);
+                                                        }</td>
+                                                        <td>Not Refacorable</td>
+                                                        <td></td>
+                                                        </tr>
+
+                                                        
+
+                                                       
+
+                                                              <tr>
+                                                                <td>4</td>
+                                                                <td>C</td>
+                                                                <td> (AdminType==USER_ADMIN && strcmp(ActionUser,Username)==0))){
+                                                                  sprintf(StatusMessage,"%s", get_html_text(142));
+                                                                  return(142)</td>
+                                                                <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                                                                  sprintf(StatusMessage,"%s", get_html_text(142));
+                                                                  return(142);
+                                                                }</td>
+                                                                <td>Not Refacorable</td>
+                                                                <td></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                  <td>4</td>
+                                                                  <td>C</td>
+                                                                  <td> (AdminType==USER_ADMIN && strcmp(ActionUser,Username)==0))){
+                                                                    sprintf(StatusMessage,"%s", get_html_text(142));
+                                                                    return(142)</td>
+                                                                  <td>if(!(mailingListNames = malloc(sizeof(char *) * num))) {
+                                                                    sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                                                    return(201);
+                                                                
+                                                                  } </td>
+                                                                  <td>Not Refacorable</td>
+                                                                  <td></td>
+                                                                  </tr>
+
+                                                                  <tr>
+                                                                    <td>4</td>
+                                                                    <td>C</td>
+                                                                    <td> if(AdminType==USER_ADMIN && strcmp(ActionUser,Username)==0))){
+                                                                      sprintf(StatusMessage,"%s", get_html_text(142));
+                                                                      return(142)</td>
+                                                                    <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                                                                      sprintf(StatusMessage,"%s", get_html_text(142));
+                                                                      return(142);
+                                                                    }
+                                                                  
+                                                                    } </td>
+                                                                    <td>Refacorable</td>
+                                                                    <td>Concate Conditional Statement</td>
+                                                                    </tr>
+
+
+                                                                    <tr>
+                                                                      <td>4</td>
+                                                                      <td>C</td>
+                                                                      <td> if(!(mailingListNames[cnt] = malloc(MAX_BUFF))) {
+                                                                        sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                                                        return(201);
+                                                                      }</td>
+                                                                      <td>if ( AdminType!=DOMAIN_ADMIN ) {
+                                                                        sprintf(StatusMessage,"%s", get_html_text(142));
+                                                                        return(142);
+                                                                      }
+                                                                    
+                                                                      } </td>
+                                                                      <td>Not Refacorable</td>
+                                                                      <td></td>
+                                                                      </tr>
+
+                                                                      <tr>
+                                                                        <td>4</td>
+                                                                        <td>C</td>
+                                                                        <td> if(!(mailingListNames[cnt] = malloc(MAX_BUFF))) {
+                                                                          sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                                                          return(201);
+                                                                        }</td>
+                                                                        <td>
+                                                                        
+                                                                          if(!(mailingListNames = malloc(sizeof(char *) * num))) {
+                                                                            sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                                                            return(201);
+                                                                        
+                                                                          }
+
+                                                                        </td>
+                                                                        <td>Not Refacorable</td>
+                                                                        <td></td>
+                                                                        </tr>
+
+
+                                                                        <tr>
+                                                                          <td>4</td>
+                                                                          <td>C</td>
+                                                                          <td> if(!(mailingListNames[cnt] = malloc(MAX_BUFF))) {
+                                                                            sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                                                            return(201);
+                                                                          }</td>
+                                                                          <td>
+
+                                                                            else if (create != 0 && check_local_user(forwardname)) {
+                                                                              sprintf(StatusMessage, "%s %s\n", get_html_text(175), forwardname);
+                                                                              return(-1);
+                                                                            }
+                                                                          
+                                                                            
+  
+                                                                          </td>
+                                                                          <td>Not Refacorable</td>
+                                                                          <td></td>
+                                                                          </tr>
+
+                                                                          <tr>
+                                                                            <td>4</td>
+                                                                            <td>C</td>
+                                                                            <td>  else if (create != 0 && check_local_user(forwardname)) {
+                                                                              sprintf(StatusMessage, "%s %s\n", get_html_text(175), forwardname);
+                                                                              return(-1);
+                                                                            }
+                                                                          </td>
+                                                                            <td>
+  
+                                                                             
+                                                                              if(!(mailingListNames = malloc(sizeof(char *) * num))) {
+                                                                                sprintf(StatusMessage, "%s\n", get_html_text(201));
+                                                                                return(201);
+                                                                            
+                                                                              }
+    
+                                                                            </td>
+                                                                            <td>Not Refacorable</td>
+                                                                            <td></td>
+                                                                            </tr>
+
+
+                                                                        
+
+                                                                      
+
+
+
+                                                                  
+                                                                
+
+
+
+    
+
+</tbody>
+</table>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
